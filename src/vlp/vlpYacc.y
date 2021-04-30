@@ -2985,7 +2985,7 @@ lvalue
                 BaseModule :: setCDFGNode($$);
              }
 	  }
-        | identifier { LY->sigNames.push(*$1) } bitExpression
+        | identifier { LY->sigNames.push(*$1); } bitExpression
           {
 	     YYTRACE("lvalue: YYID '[' expression ']'");
              if ((LY->state) == PARAM || (LY->state) == PARAM_NOL) {

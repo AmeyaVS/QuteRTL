@@ -9,6 +9,8 @@
 #ifndef CKT_ZCELL_SOURCE
 #define CKT_ZCELL_SOURCE
 
+#include <algorithm>
+
 #include "VLGlobe.h"
 #include "cktZCell.h"
 

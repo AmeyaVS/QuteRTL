@@ -10,7 +10,7 @@
 
 #include "VLGlobe.h"
 #include "vlpDesign.h"
-#include "y.tab.h"
+#include "y.tab.hpp"
 #include "vlpStack.h"
 #include "myFileUtil.h"
 #include <string>

@@ -17,7 +17,7 @@
 //#include "array.h"
 #include "synVar.h"
 #include "vlpEnum.h"
-#include "y.tab.h"
+#include "y.tab.hpp"
 
 #include <string>
 #include <stack>

@@ -9,7 +9,7 @@
 
 #include "VLGlobe.h"
 #include "vlpDesign.h"
-#include "lib.tab.h"
+#include "lib.tab.hpp"
 #include <string>
 #include <iostream>
 

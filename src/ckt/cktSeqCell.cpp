@@ -9,6 +9,8 @@
 #ifndef CKT_SEQ_CELL_SOURCE
 #define CKT_SEQ_CELL_SOURCE
 
+#include <algorithm>
+
 #include "VLGlobe.h"
 #include "cktSeqCell.h"
 

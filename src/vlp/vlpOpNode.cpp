@@ -9,6 +9,8 @@
 #ifndef VLP_OPNODE_SOURCE
 #define VLP_OPNODE_SOURCE
 
+#include <cstring>
+
 #include "vlpOpNode.h"
 #include "vlpModule.h"
 #include "VLGlobe.h"

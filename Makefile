@@ -15,12 +15,13 @@ AR       = ar cr
 
 all: srcLib
 	@echo "Checking $(MAIN)..."
-	@cd src/$(MAIN); make --no-print-directory INCLIB="$(LIBS)" EXEC=$(EXEC); cd ../.. ;
-	@ln -fs bin/$(EXEC) .
+	mkdir -p bin
+	cd src/$(MAIN); make --no-print-directory INCLIB="$(LIBS)" EXEC=$(EXEC); cd ../.. ;
+	ln -fs bin/$(EXEC) .
 #	@strip bin/$(EXEC)
        	
 srcLib: 
-	@for pkg in $(SRCPKGS); \
+	for pkg in $(SRCPKGS); \
 	do \
 		echo "Checking $$pkg..."; \
 		cd src/$$pkg; make --no-print-directory PKGNAME=$$pkg; \
@@ -28,24 +29,24 @@ srcLib:
 	done
 
 clean:
-	@for pkg in $(SRCPKGS); \
+	for pkg in $(SRCPKGS); \
 	do \
 		echo "Cleaning $$pkg..."; \
 		cd src/$$pkg; make --no-print-directory PKGNAME=$$pkg clean; \
 		cd ../.. ; \
 	done
 	@echo "Cleaning $(MAIN)..."
-	@cd src/$(MAIN); make --no-print-directory clean
+	cd src/$(MAIN); make --no-print-directory clean
 	@echo "Removing $(LIBFILES)..."
-	@cd lib; rm -f $(LIBFILES)
+	cd lib; rm -f $(LIBFILES)
 	@echo "Removing $(EXEC)..."
-	@rm -f bin/$(EXEC) 
+	rm -f bin/$(EXEC) 
 	@echo "Removing obj/"
-	@cd obj/; rm -rf *.o
+	cd obj/; rm -rf *.o
 
 ctags:	  
-	@rm -f src/tags
-	@for pkg in $(SRCPKGS); \
+	rm -f src/tags
+	for pkg in $(SRCPKGS); \
 	do \
 		echo "Tagging $$pkg..."; \
 		cd src; ctags -a $$pkg/*.cpp $$pkg/*.h; cd ..; \

@@ -18,13 +18,13 @@ CFLAGS = -g -Wall $(PKGFLAG)
 
 %.o : %.cpp 
 	@echo "> compiling: $<"
-	@$(CXX) $(CFLAGS) -I$(EXTINCDIR) -c -o $@ $<
+	$(CXX) $(CFLAGS) -I$(EXTINCDIR) -c -o $@ $<
 
 top: $(EXTLINK) target
-	@echo -n
+	echo -n
 
 clean:
-	@rm -f $(COBJS)
+	rm -f $(COBJS)
 #	@rm -f .depend.mak
 #	@rm -f .extheader.mak
 
@@ -32,21 +32,21 @@ clean:
 depend: .depend.mak
 .depend.mak: $(CSRCS) $(CHDRS)
 	@echo Making dependencies ...
-	@$(CXX) -MM $(DEPENDDIR) $(CSRCS) > $@
+	$(CXX) -MM $(DEPENDDIR) $(CSRCS) > $@
 
 ## Linking external headers
 extheader: .extheader.mak
 .extheader.mak: $(EXTHDRS)
 	@echo Linking external header files...
-	@rm -f $@
-	@echo -n "$(EXTLINK): " > $@
-	@for hdr in $(EXTHDRS); \
+	rm -f $@
+	echo -n "$(EXTLINK): " > $@
+	for hdr in $(EXTHDRS); \
 	do \
 		echo -n "$(EXTINCDIR)/$$hdr " >> $@; \
 		rm -f $(EXTINCDIR)/$$hdr; \
 	done
 	@echo >> $@
-	@for hdr in $(EXTHDRS); \
+	for hdr in $(EXTHDRS); \
 	do \
 		echo "$(EXTINCDIR)/$$hdr: $$hdr" >> $@; \
 		echo "	@rm -f $(EXTINCDIR)/$$hdr" >> $@; \

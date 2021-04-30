@@ -9,6 +9,8 @@
 #ifndef CKT_PIN_SOURCE
 #define CKT_PIN_SOURCE
 
+#include <algorithm>
+
 #include "VLGlobe.h"
 #include "cktPin.h"
 #include "synVar.h"

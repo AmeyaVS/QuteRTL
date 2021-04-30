@@ -1,5 +1,5 @@
-lex vlpLex.l
-mv lex.yy.c lex.yy.cpp
-lex -Plib vlpLibLex.l
-mv lex.lib.c lex.lib.cpp
+flex -o lex.yy.cpp vlpLex.l
+#mv lex.yy.c lex.yy.cpp
+flex -Plib -o lex.lib.cpp vlpLibLex.l
+#mv lex.lib.c lex.lib.cpp
 
