@@ -19,19 +19,25 @@ cleanly:
 
 lex.yy.cpp : vlpLex.l y.tab.hpp
 	@echo "> lex: $<"
-	@$(LEX) -o lex.yy.cpp vlpLex.l
+	@$(LEX) vlpLex.l
+	@mv lex.yy.c lex.yy.cpp
 
 lex.lib.cpp : vlpLibLex.l lib.tab.hpp
 	@echo "> lex: $<"
-	@$(LEX) -Plib -o lex.lib.cpp vlpLibLex.l
+	@$(LEX) -Plib vlpLibLex.l
+	@mv lex.lib.c lex.lib.cpp
 
 y.tab.cpp y.tab.hpp &: vlpYacc.y
 	@echo "> Yacc: $<"
-	@$(YACC) $(YFLAG) -o y.tab.cpp vlpYacc.y
+	@$(YACC) $(YFLAG) vlpYacc.y
+	@mv vlpYacc.tab.c y.tab.cpp
+	@mv vlpYacc.tab.h y.tab.hpp
 
 lib.tab.cpp lib.tab.hpp &: vlpLibYacc.y
 	@echo "> Yacc: $<"
-	@$(YACC) $(YFLAG) -p lib -o lib.tab.cpp  vlpLibYacc.y
+	@$(YACC) $(YFLAG) -p lib vlpLibYacc.y
+	@mv vlpLibYacc.tab.c lib.tab.cpp
+	@mv vlpLibYacc.tab.h lib.tab.hpp
 
 lex.yy.o : lex.yy.cpp
 
