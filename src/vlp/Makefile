@@ -12,26 +12,26 @@ include ../Makefile.in
 include ../Makefile.lib
 
 cleanly:
-	rm -f lex.yy.cpp
-	rm -f lex.lib.cpp
-	rm -f y.tab.*
-	rm -f lib.tab.*
+	@rm -f lex.yy.cpp
+	@rm -f lex.lib.cpp
+	@rm -f y.tab.*
+	@rm -f lib.tab.*
 
 lex.yy.cpp : vlpLex.l y.tab.hpp
 	@echo "> lex: $<"
-	$(LEX) -o lex.yy.cpp vlpLex.l
+	@$(LEX) -o lex.yy.cpp vlpLex.l
 
 lex.lib.cpp : vlpLibLex.l lib.tab.hpp
 	@echo "> lex: $<"
-	$(LEX) -Plib -o lex.lib.cpp vlpLibLex.l
+	@$(LEX) -Plib -o lex.lib.cpp vlpLibLex.l
 
 y.tab.cpp y.tab.hpp &: vlpYacc.y
 	@echo "> Yacc: $<"
-	$(YACC) $(YFLAG) -o y.tab.cpp vlpYacc.y
+	@$(YACC) $(YFLAG) -o y.tab.cpp vlpYacc.y
 
 lib.tab.cpp lib.tab.hpp &: vlpLibYacc.y
 	@echo "> Yacc: $<"
-	$(YACC) $(YFLAG) -p lib -o lib.tab.cpp  vlpLibYacc.y
+	@$(YACC) $(YFLAG) -p lib -o lib.tab.cpp  vlpLibYacc.y
 
 lex.yy.o : lex.yy.cpp
 
