@@ -272,7 +272,7 @@ VlpDesign::getHTNode(const string& name) const
 bool
 VlpDesign::ParseVerilog(const char* fileName, bool isBBox)
 {
-   FILE* yyin;
+   extern FILE* yyin;
    bool success = false;
    if (!(yyin = fopen(fileName, "r"))) Msg(MSG_ERR) << "Verilog File \"" << fileName << "\" Doesn't Exist!!" << endl;
    else {
@@ -355,7 +355,7 @@ VlpDesign::ParseFileList(const char* fileName)
 bool
 VlpDesign::ParseVerilogLib(const char* fileName)
 {
-   FILE* libin;
+   extern FILE* libin;
    bool success = false;
    if (!(libin = fopen(fileName, "r"))) Msg(MSG_ERR) << "Library File \"" << fileName << "\" Doesn't Exist!!" << endl;
    else {
