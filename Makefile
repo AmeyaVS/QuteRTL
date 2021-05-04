@@ -43,6 +43,7 @@ clean:
 	@rm -f bin/$(EXEC) 
 	@echo "Removing obj/"
 	@cd obj/; rm -rf *.o
+	@rm -v include/y.tab.hpp include/lib.tab.hpp
 
 ctags:	  
 	@rm -f src/tags

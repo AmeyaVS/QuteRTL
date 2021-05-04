@@ -11,11 +11,14 @@ COBJS = lex.yy.o lex.lib.o
 include ../Makefile.in
 include ../Makefile.lib
 
+clean: cleanly
+
 cleanly:
 	@rm -f lex.yy.cpp
 	@rm -f lex.lib.cpp
 	@rm -f y.tab.*
 	@rm -f lib.tab.*
+	@rm -f *.output
 
 lex.yy.cpp : vlpLex.l y.tab.hpp
 	@echo "> lex: $<"
