@@ -1,6 +1,6 @@
-CSRCS     = $(wildcard *.cpp)
-CHDRS     = $(wildcard *.h)
-COBJS     = $(addsuffix .o, $(basename $(CSRCS)))
+CSRCS     += $(wildcard *.cpp)
+CHDRS     += $(wildcard *.h) $(wildcard *.hpp)
+COBJS     += $(addsuffix .o, $(basename $(CSRCS)))
 
 EXTINCDIR = ../../include
 DEPENDDIR = -I. -I$(EXTINCDIR)

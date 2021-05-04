@@ -5,6 +5,9 @@ LEX  = flex
 YACC = bison
 YFLAG = -d -v
 
+CSRCS = lex.yy.cpp lex.lib.cpp
+COBJS = lex.yy.o lex.lib.o
+
 include ../Makefile.in
 include ../Makefile.lib
 
