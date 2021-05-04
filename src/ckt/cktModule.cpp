@@ -26,6 +26,7 @@
 #include "util.h"
 #include <queue>
 #include <set>
+#include <algorithm>
 
 extern VlpDesign&          VLDesign;
 extern SynOutFile          synOutFile;

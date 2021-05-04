@@ -13,6 +13,8 @@
 #include "vlpModule.h"
 #include "VLGlobe.h"
 
+#include <cstring>
+
 extern const VlgModule* curVlpModule;
 extern SYN_usage*       SYN;
 

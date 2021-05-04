@@ -16,6 +16,8 @@
 
 #include "vlpItoStr.h"
 
+#include <algorithm>
+
 extern SynOutFile      synOutFile;
 extern CktOutFile      cktOutFile;
 extern int             instNumber;

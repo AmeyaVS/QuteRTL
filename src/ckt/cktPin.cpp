@@ -13,6 +13,8 @@
 #include "cktPin.h"
 #include "synVar.h"
 
+#include <algorithm>
+
 extern VlpDesign&       VLDesign;
 extern SYN_usage*       SYN;
 extern const VlgModule* curVlpModule;
